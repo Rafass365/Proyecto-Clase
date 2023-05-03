@@ -20,8 +20,9 @@ public class Metodos
         Console.WriteLine("Introducca su nombre:");
         Console.ForegroundColor = ConsoleColor.White;
         var nombre = Console.ReadLine();
-        var nuevoUsuario = new Usuario();
-        nuevoUsuario.setNombre(nombre);
+        Usuario.nuevoUsuario = new Usuario();
+        
+        Usuario.nuevoUsuario.setNombre(nombre);
         return nombre;
     }
 

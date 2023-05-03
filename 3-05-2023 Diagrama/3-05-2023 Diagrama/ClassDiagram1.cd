@@ -1,38 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="_3_05_2023_Diagrama.Monedas">
-    <Position X="3" Y="8.25" Width="1.5" />
+    <Position X="0.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Monedas.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_3_05_2023_Diagrama.Historico">
-    <Position X="9" Y="5.75" Width="1.5" />
+    <Position X="7.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Historico.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Usuarios" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="_3_05_2023_Diagrama.Factores">
-    <Position X="3" Y="5.75" Width="1.5" />
+    <Position X="5" Y="5" Width="1.5" />
+    <AssociationLine Name="Monedas" Type="_3_05_2023_Diagrama.Monedas" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5" Y="5.499" />
+        <Point X="4.876" Y="5.499" />
+        <Point X="4.876" Y="6.471" />
+        <Point X="2.208" Y="6.471" Type="JumpStart" />
+        <Point X="2.042" Y="6.471" Type="JumpEnd" />
+        <Point X="0.938" Y="6.471" />
+        <Point X="0.938" Y="7" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
       <FileName>Factores.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Monedas" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="_3_05_2023_Diagrama.Usuarios">
-    <Position X="9" Y="8.25" Width="1.5" />
+    <Position X="2.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Usuarios.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_3_05_2023_Diagrama.Entidad">
-    <Position X="6" Y="3.25" Width="1.5" />
+    <Position X="3.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entidad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_3_05_2023_Diagrama.EntidadConNombre">
+    <Position X="1.25" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntidadConNombre.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

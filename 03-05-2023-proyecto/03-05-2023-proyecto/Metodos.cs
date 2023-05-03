@@ -14,7 +14,6 @@ public class Metodos
 {
     public static string nuevoUsuarioNombre()
     {
-
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("VAMOS A REGISTRARLE EN LA APLICACION");
         Console.WriteLine("Introducca su nombre:");

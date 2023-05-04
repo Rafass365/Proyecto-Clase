@@ -49,6 +49,8 @@ public class Usuario
         return (contraseña == "contraseña");
     }
 
+   
+
     /// Constructores
     public Usuario(string nombre, string contraseña)
     {

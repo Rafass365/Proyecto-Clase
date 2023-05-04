@@ -65,6 +65,7 @@ public class Metodos
         Console.WriteLine($"{nombre} Acaba de ser registrado");
         Console.WriteLine($"{nombre} Vamos a convertir monedas");
         Console.ForegroundColor = ConsoleColor.White;
+        Moneda.conversorMonedas();
     }
 
     public static void contraseñasNoCoinciden(string nombre)
@@ -74,6 +75,6 @@ public class Metodos
         Console.ForegroundColor = ConsoleColor.Green;                    
         Console.WriteLine("VOLVAMOS A INTRODUCIR LA CONTRASEÑA");                                        
         Console.ForegroundColor = ConsoleColor.White;  
-        Moneda.conversorMonedas();
+        
     }
 }

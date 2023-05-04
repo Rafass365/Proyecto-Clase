@@ -10,7 +10,7 @@ namespace Negocio
         public string Nombre { get; set; }
 
         protected int DiasVacaciones; // Para que lo herede la clase hijo
-                                       // Sí fuese private --> No lo here
+                                       // Sí fuese private --> No lo heredaria el hijo
 
         public void CalcularVacaciones()
         {

@@ -9,6 +9,14 @@ namespace HOY
     internal class Moneda
 
     {
+        private int Nombre
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         enum Monedas
         {
             Euros,

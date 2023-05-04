@@ -7,5 +7,12 @@ namespace HOY
 {
     public class Busqueda
     {
+        public Usuario Usuario
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

@@ -1,16 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Usuario">
-    <Position X="3" Y="2.5" Width="1.5" />
+    <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAACIAAAAAgAAIACAAAACAAAgAAAAAAAA=</HashCode>
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HOY.Moneda" Collapsed="true">
-    <Position X="5.5" Y="0.5" Width="1.5" />
+  <Class Name="HOY.Moneda">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="HOY.Moneda.Monedas" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Moneda.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Moneda.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -22,11 +29,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="HOY.Busqueda">
-    <Position X="1.75" Y="3.75" Width="1.5" />
+    <Position X="3.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Busqueda.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Usuario" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

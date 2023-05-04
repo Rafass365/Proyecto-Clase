@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 
 public class Usuario
@@ -49,7 +52,14 @@ public class Usuario
         return (contraseña == "contraseña");
     }
 
-   
+
+    public override string ToString() //Polimorfismo --> Hacer que un método cambie de funcionamiento 
+    {
+        return $"[Usuario. Nombre: {Nombre}]";
+    }
+
+
+
 
     /// Constructores
     public Usuario(string nombre, string contraseña)

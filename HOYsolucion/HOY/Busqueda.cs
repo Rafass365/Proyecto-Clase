@@ -14,5 +14,8 @@ namespace HOY
             {
             }
         }
+
+        List<Busqueda> listaBusqueda = new List<Busqueda>();
+        Busqueda busqueda = new Busqueda();
     }
 }

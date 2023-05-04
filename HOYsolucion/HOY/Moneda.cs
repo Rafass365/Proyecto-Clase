@@ -9,23 +9,48 @@ namespace HOY
     internal class Moneda
 
     {
-        private int Nombre
+        private string Nombre;     //Atributo -> Siempre private (Visible únicamente por los metodos de la misma clase
+        private double Tasa;
+        List<Moneda> listaMonedas = new List<Moneda>();
+        Moneda euro = new Moneda("Euro");
+        Moneda dolar = new Moneda("Dolar");
+        Moneda libra = new Moneda("Libra");
+        
+
+        public Moneda(string nombre, double tasa)
         {
-            get => default;
-            set
-            {
-            }
+            this.Nombre = nombre;
+            this.Tasa = tasa;
         }
 
-        enum Monedas
+        public Moneda(string nombre)
         {
-            Euros,
-            Dolares,
-            Libras,
+            this.Nombre = nombre;
+            
         }
+
+        public Moneda()
+        {
+        }
+        //private int Nombre
+        //{
+        //    get => default;
+        //    set
+        //    {
+        //    }
+        //}
+
+        //enum Monedas
+        //{
+        //    Euros,
+        //    Dolares,
+        //    Libras,
+        //}
+
         
-        
-            public static void conversorMonedas() 
+
+
+        public static void conversorMonedas() 
             {
                 bool seguir = true;
                 string continuar;
@@ -55,7 +80,7 @@ namespace HOY
                     {
                         case "ed":
                             resultado = Math.Round(Convert.ToDouble(cantidad * tasaED), 2);
-                            Console.WriteLine($"{cantidad} {Monedas.Euros} son {resultado} {Monedas.Dolares}");
+                            Console.WriteLine($"{cantidad} Euros son {resultado} Dolares");
                             break;
 
                         case "el":

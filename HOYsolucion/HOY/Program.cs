@@ -30,7 +30,7 @@ namespace Proyecto_Clase_R
             nuevo = Console.ReadLine();
             
             
-            Console.WriteLine(listaUsuarios.Count);
+            //Console.WriteLine(listaUsuarios.Count);
 
          
             switch (nuevo)

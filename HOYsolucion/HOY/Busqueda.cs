@@ -7,15 +7,20 @@ namespace HOY
 {
     public class Busqueda
     {
-        public Usuario Usuario
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        private Moneda monedaOrigen;
+        private Moneda monedaDestino;
+        private double tasa;
 
-        List<Busqueda> listaBusqueda = new List<Busqueda>();
+           
+        public Busqueda(Moneda monedaOrigen, Moneda monedaDestino)
+        {
+        
+        }
+        List<Busqueda> listahistorico = new List<Busqueda>();
         Busqueda busqueda = new Busqueda();
     }
+
+    
+
+    
 }

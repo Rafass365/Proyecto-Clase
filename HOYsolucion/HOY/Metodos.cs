@@ -48,10 +48,10 @@ public class Metodos
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine($"{nombre} Esta correctamente logueado");
         Console.WriteLine($"{nombre} Sus últimas busquedas son:");
-
-        Console.WriteLine($"{nombre} 25 € son 30$");
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine($"{nombre} 25 Euros son 30 $");
         Console.WriteLine($"{nombre} 190 $ son 210 Libras");
-        Console.WriteLine($"{nombre} 1 libras son 1.5€");
+        Console.WriteLine($"{nombre} 1 Libras son 1.5 Euros");
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine($"{nombre} VAMOS A CONVERTIR MONEDAS JUNTOS");
         Console.ForegroundColor = ConsoleColor.White;
@@ -62,6 +62,7 @@ public class Metodos
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("Las contraseñas coinciden");
+        Console.WriteLine("\n");
         Console.WriteLine($"{nombre} Acaba de ser registrado");
         Console.WriteLine($"{nombre} Vamos a convertir monedas");
         Console.ForegroundColor = ConsoleColor.White;
@@ -70,6 +71,7 @@ public class Metodos
 
     public static void contraseñasNoCoinciden(string nombre)
     { 
+        Console.Clear();
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("Las contraseñas no coinciden");
         Console.ForegroundColor = ConsoleColor.Green;                    

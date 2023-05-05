@@ -38,6 +38,7 @@ namespace Proyecto_Clase_R
                 case "n":               // Es un nuevo Ususario -> Registrarlo
                                     
                     nombre = Metodos.nuevoUsuarioNombre();
+
                     
                     do
                     {

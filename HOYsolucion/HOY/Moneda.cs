@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HOY
+namespace Proyecto_Clase_R
 {
     internal class Moneda
 

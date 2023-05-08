@@ -7,50 +7,35 @@
         private String Contraseña; //Atributo
         private Busqueda Busqueda;
 
-        List<Busqueda> listahistorico = new List<Busqueda>();
-        Busqueda busqueda = new Busqueda();
-        public int MyProperty { get; set; }         // Declaración de propiedad AUTOMATICA
-                                                    //Propiedad -> Siempre public (Visible por cuanquier método de la aplicación
-                                                    //Propiedades son en realidad una forma especial de escribir métodos.
-                                                    // añadirle ? Significa que puede tener valor nulo (null)
-                                                    //public string Nombre    //Declaracion de propiedad COMPLETA
-                                                    //{
-                                                    //
-                                                    //    get { return nombre; }
-                                                    //    set
-                                                    //    {
-                                                    //        var nombreMayusculas = value.ToUpper();
-                                                    //        nombre = nombreMayusculas;
-                                                    //    }
-                                                    //}
+        List<Busqueda> listahistorico = new List<Busqueda>(); //creamos un historico para ese usuario
+
+        
 
         public void setNombre(string nombre)
         {
             this.Nombre = nombre;
         }
+
         public string getNombre()
         {
             return Nombre;
-
         }
+
         public void setContraseña(string contraseña)    //Metodos -> pueden o no recibir info
         {                                               //Metodos -> pueden o no devolver info
             this.Contraseña = contraseña;               //Métodos accesores, usados para trabajar con los campos, ya que los atributos deben ser private 
         }
+
         public string getContraseña()
         {
-
             return Contraseña;
-
         }
-
 
         public bool PaswordCorrecto(string contraseña)
         {
             //return this.Contraseña == contraseña;
             return (contraseña == "contraseña");
         }
-
 
         public override string ToString() //Polimorfismo --> Hacer que un método cambie de funcionamiento 
         {
@@ -61,11 +46,11 @@
 
 
         /// Constructores
-        public Usuario(string nombre, string contraseña)
+        public Usuario(string nombre, string contraseña )
         {
             this.Nombre = nombre;
             this.Contraseña = contraseña;
-            List<Busqueda> listahistorico = new List<Busqueda>();
+            List<Busqueda> listahistorico = new List<Busqueda>(10);
             Busqueda busqueda = new Busqueda();
         }
 
@@ -73,5 +58,4 @@
         {
         }
     }
-
 }

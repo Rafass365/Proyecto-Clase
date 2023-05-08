@@ -8,27 +8,30 @@ namespace Proyecto_Clase_R
         static void Main(string[] args)
         {
                   
-            List<Usuario> listaUsuarios = new List<Usuario>() ;
-            Usuario Rafa = new Usuario("Rafa", "Pass");
-            listaUsuarios.Add(Rafa);
-            Usuario Paco = new Usuario("Paco", "Pass");
+            List<Usuario> listaUsuarios = new List<Usuario>() ; // Crea una lista de usuarios
+            Usuario Rafa = new Usuario("Rafa", "Rafa");         // Crea un usuario nuevo
+            listaUsuarios.Add(Rafa);                            // añadimos el usuario a la lista creada
+            Usuario Paco = new Usuario("Paco", "Paco");
             listaUsuarios.Add (Paco);
-            Usuario Pepe = new Usuario("Pepe", "Pass");
+            Usuario Pepe = new Usuario("Pepe", "Pepe");
             listaUsuarios.Add (Pepe);
 
+            List<Moneda> listaMonedas = new List<Moneda>();
+            Moneda euro = new Moneda("Euro");
+            Moneda dolar = new Moneda("Dolar");
+            Moneda libra = new Moneda("Libra");//TODO: Agregar Las monedas a la lista
+
+            List<Busqueda>  historico = new List<Busqueda>();
 
             string nuevo;
             string nombre;
             string password;
-            string npassword;
             bool correcta;
-            bool existeUsuario;
             bool correctamenteLogueado = false;
 
-
-            Console.WriteLine("Hola, es usted usuario nuevo(n) o ya esta registrado(r)");
+            Console.WriteLine("Hola, es usted usuario nuevo(n) o ya esta registrado(r)"); 
             nuevo = Console.ReadLine();
-            
+            //TODO: Comprobar entrada correcta
             
             //Console.WriteLine(listaUsuarios.Count);
 
@@ -39,10 +42,8 @@ namespace Proyecto_Clase_R
                                     
                     nombre = Metodos.nuevoUsuarioNombre();
 
-                    
                     do
                     {
-                       
                         correcta = Metodos.nuevoUsuarioContraseña();
 
                         if (correcta)                      //"Las contraseñas coinciden"
@@ -57,6 +58,7 @@ namespace Proyecto_Clase_R
                         }
 
                     } while (correcta != true); //Hacer mientras las contraseñas NO coincidan
+                    Metodos.conversorMonedas(listaMonedas, historico); 
                     break;
 
                 case "r":               // Es un Ususario Registrado -> Comprobar Usuario <-> Contraseña
@@ -98,8 +100,9 @@ namespace Proyecto_Clase_R
                             Console.WriteLine("Vuelva a introducir su nombre");
                             Console.ForegroundColor = ConsoleColor.White;
                         }
+
                     } while (correctamenteLogueado == false);
-                    
+                    Metodos.conversorMonedas(listaMonedas, historico);
                     break;
 
                

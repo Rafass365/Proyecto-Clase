@@ -10,6 +10,7 @@ namespace Negocio
         public Administrativo() { }
         public string Plazaparking { get; set; }
 
+        
         public override string ToString()
         {
 

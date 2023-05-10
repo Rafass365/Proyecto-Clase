@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Clase_R
 {
-    internal class Moneda
-
+    public class Moneda : Metodos
     {
-        private string Nombre;     //Atributo -> Siempre private (Visible únicamente por los metodos de la misma clase
-        private double Tasa;
-        
-        
+        public string Nombre;    //Atributo -> Siempre private (Visible únicamente por los metodos de la misma clase
+        public string Letra;
+        public double Tasa;
+
+
 
         public Moneda(string nombre, double tasa)
         {
@@ -20,10 +20,10 @@ namespace Proyecto_Clase_R
             this.Tasa = tasa;
         }
 
-        public Moneda(string nombre)
+        public Moneda(string nombre, string letra)
         {
             this.Nombre = nombre;
-            
+            this.Letra = letra;
         }
 
         public Moneda()

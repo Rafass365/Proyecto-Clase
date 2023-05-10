@@ -6,10 +6,15 @@
         private string Nombre;     //Atributo -> Siempre private (Visible únicamente por los metodos de la misma clase
         private String Contraseña; //Atributo
         private Busqueda Busqueda;
-
         List<Busqueda> listahistorico = new List<Busqueda>(); //creamos un historico para ese usuario
 
-        
+        public Metodos Metodos
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         public void setNombre(string nombre)
         {
@@ -41,8 +46,6 @@
         {
             return $"[Usuario. Nombre: {Nombre}]";
         }
-
-
 
 
         /// Constructores

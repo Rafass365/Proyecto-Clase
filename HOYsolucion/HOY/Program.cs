@@ -1,27 +1,41 @@
-﻿using System.Linq;
+﻿using HOY;
+using System.Linq;
 namespace Proyecto_Clase_R
 {
     internal class Program
     {
-        
-    
+
+
         static void Main(string[] args)
         {
-                  
-            List<Usuario> listaUsuarios = new List<Usuario>() ; // Crea una lista de usuarios
+
+            List<Usuario> listaUsuarios = new List<Usuario>();  // Crea una lista de Usuarios
             Usuario Rafa = new Usuario("Rafa", "Rafa");         // Crea un usuario nuevo
             listaUsuarios.Add(Rafa);                            // añadimos el usuario a la lista creada
             Usuario Paco = new Usuario("Paco", "Paco");
-            listaUsuarios.Add (Paco);
+            listaUsuarios.Add(Paco);
             Usuario Pepe = new Usuario("Pepe", "Pepe");
-            listaUsuarios.Add (Pepe);
+            listaUsuarios.Add(Pepe);
 
-            List<Moneda> listaMonedas = new List<Moneda>();
-            Moneda euro = new Moneda("Euro");
-            Moneda dolar = new Moneda("Dolar");
-            Moneda libra = new Moneda("Libra");//TODO: Agregar Las monedas a la lista
+            List<Moneda> listaMonedas = new List<Moneda>();     // Crea una lista de Monedas
+            Moneda euro = new Moneda("Euro", "e");              // Crea una Moneda nueva
+            listaMonedas.Add(euro);                             // Añadimos la moneda a la lista de monedas creada
+            Moneda dolar = new Moneda("Dolar", "d");
+            listaMonedas.Add(dolar);
+            Moneda libra = new Moneda("Libra", "l");
+            listaMonedas.Add(libra);
 
-            List<Busqueda>  historico = new List<Busqueda>();
+
+            List<Tasa> listaTasas = new List<Tasa>();           // Tasa == Factor de conversion entre dos monedas
+            Tasa ed = new Tasa(euro, dolar, 1.10);              // Creamos una lista de tasa (Dos monedas y su factor de conversion entre ambas
+            listaTasas.Add(ed);                                 // Añadimos esa relacion a la lista de tasas de conversión
+            Tasa el = new Tasa(euro, libra, 0.90);
+            listaTasas.Add(el);
+            Tasa dl = new Tasa(dolar, libra, 0.80);
+            listaTasas.Add(dl);
+            
+            //TODO: factorizar el Case 
+            List<Busqueda> historico = new List<Busqueda>();
 
             string nuevo;
             string nombre;
@@ -29,17 +43,17 @@ namespace Proyecto_Clase_R
             bool correcta;
             bool correctamenteLogueado = false;
 
-            Console.WriteLine("Hola, es usted usuario nuevo(n) o ya esta registrado(r)"); 
+            Console.WriteLine("Hola, es usted usuario nuevo(n) o ya esta registrado(r)");
             nuevo = Console.ReadLine();
             //TODO: Comprobar entrada correcta
-            
+
             //Console.WriteLine(listaUsuarios.Count);
 
-         
+
             switch (nuevo)
             {
                 case "n":               // Es un nuevo Ususario -> Registrarlo
-                                    
+
                     nombre = Metodos.nuevoUsuarioNombre();
 
                     do
@@ -49,7 +63,7 @@ namespace Proyecto_Clase_R
                         if (correcta)                      //"Las contraseñas coinciden"
                         {
                             Metodos.contraseñasCoinciden(nombre);
-                            
+
                         }
                         else                                //"Las contraseñas NO coinciden"
                         {
@@ -58,7 +72,7 @@ namespace Proyecto_Clase_R
                         }
 
                     } while (correcta != true); //Hacer mientras las contraseñas NO coincidan
-                    Metodos.conversorMonedas(listaMonedas, historico); 
+                    Metodos.conversorMonedas(listaMonedas, historico);
                     break;
 
                 case "r":               // Es un Ususario Registrado -> Comprobar Usuario <-> Contraseña
@@ -87,9 +101,9 @@ namespace Proyecto_Clase_R
                                 {
                                     correctamenteLogueado = false;      // No coincide el usuario con su contraseña => Volver introducir password 
                                     Console.ForegroundColor = ConsoleColor.Blue;
-                                    Console.WriteLine($"{nombre} Su Password no coincide con su usuario"); 
+                                    Console.WriteLine($"{nombre} Su Password no coincide con su usuario");
                                     Console.WriteLine("Vuelva a introducir su password");
-                                    Console.ForegroundColor = ConsoleColor.White;                                  
+                                    Console.ForegroundColor = ConsoleColor.White;
                                 }
                             }
                         }
@@ -105,15 +119,15 @@ namespace Proyecto_Clase_R
                     Metodos.conversorMonedas(listaMonedas, historico);
                     break;
 
-               
-                default: 
+
+                default:
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("No es una entrada correcta.");
-                    break;                                   
+                    break;
             }
-            
+
         }
-        
-    }
 
     }
+
+}

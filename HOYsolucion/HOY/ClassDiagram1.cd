@@ -1,37 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Usuario">
-    <Position X="3.5" Y="0.5" Width="1.5" />
+  <Class Name="Proyecto_Clase_R.Usuario" Collapsed="true">
+    <Position X="9.75" Y="3.75" Width="1.5" />
+    <AssociationLine Name="Metodos" Type="Proyecto_Clase_R.Metodos" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="3.75" />
+        <Point X="10.5" Y="3.333" />
+        <Point X="7.375" Y="3.333" />
+        <Point X="7.375" Y="2.812" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAACIAAAAAgAAIACAAAACAAAgAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAIEAAAAgAAIACAAAACEAAkAAAAAAAI=</HashCode>
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Metodos" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="HOY.Moneda">
-    <Position X="8.5" Y="0.5" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="HOY.Moneda.Monedas" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Moneda.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
+  <Class Name="HOY.Tasa" Collapsed="true">
+    <Position X="2.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAABAAAgAAAAAA=</HashCode>
+      <FileName>Tasa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto_Clase_R.Program" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Proyecto_Clase_R.Moneda" Collapsed="true">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAEAAAAAEAAAA=</HashCode>
       <FileName>Moneda.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="_03_05_2023_proyecto.Metodos" Collapsed="true">
-    <Position X="8" Y="2.5" Width="1.5" />
+  <Class Name="Proyecto_Clase_R.Metodos" Collapsed="true">
+    <Position X="6.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAQAEgAQAAAAAAAIAAAAAAAAAgAAAEQAAAAAAAAA=</HashCode>
       <FileName>Metodos.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Program" />
+    </ShowAsAssociation>
   </Class>
-  <Class Name="HOY.Busqueda">
-    <Position X="3.5" Y="5" Width="1.5" />
+  <Class Name="Proyecto_Clase_R.Busqueda" Collapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AQAAEAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEABAAAAA=</HashCode>
       <FileName>Busqueda.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

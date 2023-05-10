@@ -1,11 +1,22 @@
 ﻿//using HOY;
 
+using HOY;
+using System.Security.Cryptography;
+
 namespace Proyecto_Clase_R
 {
 
 
     public class Metodos
     {
+        internal Program Program
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public static string nuevoUsuarioNombre()
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -74,34 +85,21 @@ namespace Proyecto_Clase_R
             Console.WriteLine($"{nombre} VAMOS A CONVERTIR MONEDAS JUNTOS");
             Console.ForegroundColor = ConsoleColor.White;
         }
-        //private int Nombre
-        //{
-        //    get => default;
-        //    set
-        //    {
-        //    }
-        //}
-
-        //enum Monedas
-        //{
-        //    Euros,
-        //    Dolares,
-        //    Libras,
-        //}
-
-        
+             
 
 
-        public static void conversorMonedas() 
+        public static void conversorMonedas(List<Moneda> listaMonedas, List<Busqueda> historico) 
             {
                 bool seguir = true;
                 string continuar;
                 string monedas;
                 double cantidad;
                 double resultado;
-                const double tasaED = 1.10;
-                const double tasaEL = 0.80;
-                const double tasaDL = 0.88;
+                Moneda monedaOrigen = new Moneda();
+                Moneda monedaDestino = new Moneda();
+                //const double tasaED = 1.10;
+                //const double tasaEL = 0.80;
+                //const double tasaDL = 0.88;
 
                 do
                 {
@@ -121,13 +119,20 @@ namespace Proyecto_Clase_R
                     switch (monedas)
                     {
                         case "ed":
-                            resultado = Math.Round(Convert.ToDouble(cantidad * tasaED), 2);
+                            //resultado = Math.Round(Convert.ToDouble(cantidad * tasaED), 2);
+                            Tasa tasa = (form tasa in listaTasas)
+                            monedaOrigen = (from moneda in listaMonedas where moneda.Letra == "e" select moneda).FirstOrDefault();
+                           
+                            monedaDestino = (from moneda in listaMonedas where moneda.Letra == "d" select moneda).FirstOrDefault();
                             Console.WriteLine($"{cantidad} Euros son {resultado} Dolares");
                             break;
 
                         case "el":
                             resultado = Math.Round(Convert.ToDouble(cantidad * tasaEL), 2);
-                            Console.WriteLine($"{cantidad} Euros son {resultado} Libras");
+                        monedaOrigen = (from moneda in listaMonedas where moneda.Letra == "e" select moneda).FirstOrDefault();
+
+                        monedaDestino = (from moneda in listaMonedas where moneda.Letra == "" select moneda).FirstOrDefault();
+                        Console.WriteLine($"{cantidad} Euros son {resultado} Libras");
                             break;
 
                         case "de":
@@ -154,7 +159,14 @@ namespace Proyecto_Clase_R
                             Console.WriteLine($"Moneda destino u origen erronea.");
                             break;
                     }
+                Busqueda nuevaBusqueda = new Busqueda() {
+                    monedaDestino = monedaDestino,
+                    monedaOrigen = monedaOrigen
 
+                };
+                //TODO: Agrgar a la lista de busquedas
+
+                
 
 
                     //Control de siguiente conversión o salida de programa

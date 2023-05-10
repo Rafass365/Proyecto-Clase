@@ -8,17 +8,25 @@ namespace Proyecto_Clase_R
 {
     public class Busqueda
     {
-        private Moneda monedaOrigen;
-        private Moneda monedaDestino;
-        private double cantidad;
-        private double tasa;
+        public Moneda monedaOrigen{ get; set; }
+        public Moneda monedaDestino{ get; set; }
+        public double cantidad{ get; set; }
+        public double tasa{ get; set; }
 
-           
+        public Usuario Usuario
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+
         //public void crearBusqueda(Moneda monedaOrigen, Moneda monedaDestino)
         //{
         //    this.monedaOrigen = monedaOrigen;
         //    this.monedaDestino = monedaDestino;
-            
+
         //}
         public Busqueda()
         {

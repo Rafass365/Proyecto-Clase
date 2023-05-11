@@ -9,31 +9,45 @@ namespace Proyecto_Clase_R
         static void Main(string[] args)
         {
 
-            List<Usuario> listaUsuarios = new List<Usuario>();  // Crea una lista de Usuarios
-            Usuario Rafa = new Usuario("Rafa", "Rafa");         // Crea un usuario nuevo
-            listaUsuarios.Add(Rafa);                            // añadimos el usuario a la lista creada
-            Usuario Paco = new Usuario("Paco", "Paco");
-            listaUsuarios.Add(Paco);
-            Usuario Pepe = new Usuario("Pepe", "Pepe");
-            listaUsuarios.Add(Pepe);
+            //List<Usuario> listaUsuarios = new List<Usuario>();  // Crea una lista de Usuarios
+            //Usuario Rafa = new Usuario("Rafa", "Rafa");         // Crea un usuario nuevo
+            //listaUsuarios.Add(Rafa);                            // añadimos el usuario a la lista creada
+            //Usuario Paco = new Usuario("Paco", "Paco");
+            //listaUsuarios.Add(Paco);
+            //Usuario Pepe = new Usuario("Pepe", "Pepe");
+            //listaUsuarios.Add(Pepe);
+            List<Usuario> listaUsuarios = Metodos.crearListaUsuarioInicial();
+            List<Moneda> listaMonedas = crearListaMonedasInicial();
+            List<Tasa> listaTasa = Metodos.crearListaTasasInicial();
 
-            List<Moneda> listaMonedas = new List<Moneda>();     // Crea una lista de Monedas
-            Moneda euro = new Moneda("Euro", "e");              // Crea una Moneda nueva
-            listaMonedas.Add(euro);                             // Añadimos la moneda a la lista de monedas creada
-            Moneda dolar = new Moneda("Dolar", "d");
-            listaMonedas.Add(dolar);
-            Moneda libra = new Moneda("Libra", "l");
-            listaMonedas.Add(libra);
+            //List<Moneda> listaMonedas = new List<Moneda>();     // Crea una lista de Monedas
+            //Moneda euro = new Moneda("Euro", "e");              // Crea una Moneda nueva
+            //listaMonedas.Add(euro);                             // Añadimos la moneda a la lista de monedas creada
+            //Moneda dolar = new Moneda("Dolar", "d");
+            //listaMonedas.Add(dolar);
+            //Moneda libra = new Moneda("Libra", "l");
+            //listaMonedas.Add(libra);
 
 
-            List<Tasa> listaTasas = new List<Tasa>();           // Tasa == Factor de conversion entre dos monedas
-            Tasa ed = new Tasa(euro, dolar, 1.10);              // Creamos una lista de tasa (Dos monedas y su factor de conversion entre ambas
-            listaTasas.Add(ed);                                 // Añadimos esa relacion a la lista de tasas de conversión
-            Tasa el = new Tasa(euro, libra, 0.90);
-            listaTasas.Add(el);
-            Tasa dl = new Tasa(dolar, libra, 0.80);
-            listaTasas.Add(dl);
-            
+            //List<Tasa> listaTasas = new List<Tasa>();           // Tasa == Factor de conversion entre dos monedas
+            //Tasa ed = new Tasa(euro, dolar, 1.10);              // Creamos una lista de tasa (Dos monedas y su factor de conversion entre ambas
+            //listaTasas.Add(ed);                                 // Añadimos esa relacion a la lista de tasas de conversión
+            //Tasa el = new Tasa(euro, libra, 0.90);
+            //listaTasas.Add(el);
+            //Tasa dl = new Tasa(dolar, libra, 0.80);
+            //listaTasas.Add(dl);
+            private static List<Moneda> crearListaMonedasInicial()
+            {
+                List<Moneda> listaMonedas = new List<Moneda>();     // Crea una lista de Monedas
+                Moneda euro = new Moneda("Euro", "e");              // Crea una Moneda nueva
+                listaMonedas.Add(euro);                             // Añadimos la moneda a la lista de monedas creada
+                Moneda dolar = new Moneda("Dolar", "d");
+                listaMonedas.Add(dolar);
+                Moneda libra = new Moneda("Libra", "l");
+                listaMonedas.Add(libra);
+                return listaMonedas;
+            }
+
             //TODO: factorizar el Case 
             List<Busqueda> historico = new List<Busqueda>();
 
@@ -53,22 +67,17 @@ namespace Proyecto_Clase_R
             switch (nuevo)
             {
                 case "n":               // Es un nuevo Ususario -> Registrarlo
-
                     nombre = Metodos.nuevoUsuarioNombre();
-
                     do
                     {
                         correcta = Metodos.nuevoUsuarioContraseña();
-
                         if (correcta)                      //"Las contraseñas coinciden"
                         {
                             Metodos.contraseñasCoinciden(nombre);
-
                         }
                         else                                //"Las contraseñas NO coinciden"
                         {
                             Metodos.contraseñasNoCoinciden(nombre);
-
                         }
 
                     } while (correcta != true); //Hacer mientras las contraseñas NO coincidan

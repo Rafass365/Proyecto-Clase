@@ -1,8 +1,9 @@
-﻿//using HOY;
-
-using HOY;
-using System.Drawing;
-using System.Security.Cryptography;
+﻿using Proyecto_Clase_R;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Proyecto_Clase_R
 {
@@ -10,48 +11,13 @@ namespace Proyecto_Clase_R
 
     public class Metodos
     {
-        internal Program Program
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-
-
-        public static List<Usuario> crearListaUsuarioInicial(List<Usuario> listaUsuarios)
-        {
-              
-            Usuario Rafa = new Usuario("Rafa", "Rafa");         // Crea un usuario nuevo
-            listaUsuarios.Add(Rafa);                            // añadimos el usuario a la lista creada
-            Usuario Paco = new Usuario("Paco", "Paco");
-            listaUsuarios.Add(Paco);
-            Usuario Pepe = new Usuario("Pepe", "Pepe");
-            listaUsuarios.Add(Pepe);
-            return listaUsuarios;
-        }
-
-        public static (List<Moneda> listaMonedas, List<Tasa> listaTasas) crearListaMonedasInicial(List<Moneda> listaMonedas, List<Tasa> listaTasas)
-        {
-            /*List<Moneda> listaMonedas = new List<Moneda>();*/     // Crea una lista de Monedas
-            Moneda euro = new Moneda("Euro", "e");              // Crea una Moneda nueva
-            listaMonedas.Add(euro);                             // Añadimos la moneda a la lista de monedas creada
-            Moneda dolar = new Moneda("Dolar", "d");
-            listaMonedas.Add(dolar);
-            Moneda libra = new Moneda("Libra", "l");
-            listaMonedas.Add(libra);
-
-            /*List<Tasa> listaTasas = new List<Tasa>(); */          // Tasa == Factor de conversion entre dos monedas
-            Tasa ed = new Tasa(euro, dolar, 1.10);              // Creamos una lista de tasa (Dos monedas y su factor de conversion entre ambas
-            listaTasas.Add(ed);                                 // Añadimos esa relacion a la lista de tasas de conversión
-            Tasa el = new Tasa(euro, libra, 0.90);
-            listaTasas.Add(el);
-            Tasa dl = new Tasa(dolar, libra, 0.80);
-            listaTasas.Add(dl);
-
-            return (listaMonedas, listaTasas);
-        }
+        //internal Program Program
+        //{
+        //    get => default;
+        //    set
+        //    {
+        //    }
+        //}
 
         public static string nuevoUsuarioNombre()
         {
@@ -64,7 +30,7 @@ namespace Proyecto_Clase_R
             nuevoUsuario.setNombre(nombre);
             return nombre;
         }
-        public static bool nuevoUsuarioContraseña()         //Obtenemos la contraseña
+        public static (string, bool) nuevoUsuarioContraseña()         //Obtenemos la contraseña
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Introducca su contraseña:");
@@ -75,15 +41,17 @@ namespace Proyecto_Clase_R
             Console.ForegroundColor = ConsoleColor.Black;
             var npassword = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.White;
-            return (npassword == password);
+            return (password, npassword == password);
         }
 
         public static void contraseñasCoinciden(string nombre)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Las contraseñas coinciden");
-            Console.WriteLine("\n");
             Console.WriteLine($"{nombre} Acaba de ser registrado");
+
+            //TODO: Añadir usuarioa listaUsusario
+
             Console.WriteLine($"{nombre} Vamos a convertir monedas");
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -121,19 +89,27 @@ namespace Proyecto_Clase_R
             Console.ForegroundColor = ConsoleColor.White;
         }
         //TODO: ME quedo Aqui. Primero a revisar
-        private static (Moneda monedaO, Moneda monedaD) obtenerOrigenDestino(List<Moneda> listaMonedas)
+        public static Moneda obtenerOrigen(List<Moneda> listaMonedas)
         {
             Console.WriteLine("Introduzca la moneda origen: Euro(e), Dolar(d) o Libra(l)");
             var Letra1 = Console.ReadLine();
             Moneda monedaO = (from moneda in listaMonedas where moneda.Letra == Letra1 select moneda).FirstOrDefault();
+            return (monedaO);
+        }
+        public static Moneda  obtenerDestino(List<Moneda> listaMonedas)
+        {
             Console.WriteLine("Introduzca la moneda destino: Euro(e), Dolar(d) o Libra(l)");
             var Letra2 = Console.ReadLine();
-            Moneda monedaD = (from moneda in listaMonedas where moneda.Letra == Letra1 select moneda).FirstOrDefault();
-            return (monedaO, monedaD);
+            Moneda monedaD = (from moneda in listaMonedas where moneda.Letra == Letra2 select moneda).FirstOrDefault();
+            return (monedaD);
         }
 
 
-
+        public static double obtenerCantidad()
+        {
+            Console.WriteLine("Introduzca la cantidad a convertir");            //Adquisicion de cantidad a convertir
+            return (Math.Round(Convert.ToDouble(Console.ReadLine()), 2));
+        }
 
         public static void conversorMonedas(List<Moneda> listaMonedas, List<Busqueda> historico)
         {
@@ -146,23 +122,13 @@ namespace Proyecto_Clase_R
 
             double cantidad;
             double resultado;
-            Moneda monedaOrigen = new Moneda();
+            Moneda monedaOrigen;
             Moneda monedaDestino = new Moneda();
-            //const double tasaED = 1.10;
-            //const double tasaEL = 0.80;
-            //const double tasaDL = 0.88;
 
-            do
-            {
-                //Adquisicion de monedas de origen y destino
-
-                (Moneda monedaO, Moneda monedaD) obtenerOrigenDestino();
-                //Console.WriteLine("Introduzca la moneda origen: Euro(e), Dolar(d) o Libra(l)");
-                //monedas = Console.ReadLine();
-                //Console.WriteLine("Introduzca la moneda destino: Euro(e), Dolar(d) o Libra(l)");
-                //monedas = monedas + Console.ReadLine();
+            
 
                 //TODO:Revisar Busqueda de la tasa de conversion en la lista de tasas
+                
                 Console.WriteLine("Introduzca la cantidad a convertir");            //Adquisicion de cantidad a convertir
                 cantidad = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
 
@@ -214,7 +180,7 @@ namespace Proyecto_Clase_R
                 Busqueda nuevaBusqueda = new Busqueda()
                 {
                     monedaDestino = monedaDestino,
-                    monedaOrigen = monedaOrigen
+                    monedaOrigen = monedaOrigen;
 
                 };
                 //TODO: Agrgar a la lista de busquedas

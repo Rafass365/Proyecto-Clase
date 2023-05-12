@@ -1,5 +1,10 @@
-﻿using HOY;
+﻿using Proyecto_Clase_R;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace Proyecto_Clase_R
 {
     internal class Program
@@ -15,7 +20,7 @@ namespace Proyecto_Clase_R
             //listaUsuarios.Add(Paco);
             //Usuario Pepe = new Usuario("Pepe", "Pepe");
             //listaUsuarios.Add(Pepe);
-            
+
             //List<Moneda> listaMonedas = new List<Moneda>();     // Crea una lista de Monedas
             //Moneda euro = new Moneda("Euro", "e");              // Crea una Moneda nueva
             //listaMonedas.Add(euro);                             // Añadimos la moneda a la lista de monedas creada
@@ -36,14 +41,10 @@ namespace Proyecto_Clase_R
             List<Tasa> listaTasa = new List<Tasa>();
             List<Busqueda> historico = new List<Busqueda>();
 
-
-
-            
-            listaUsuarios = Metodos.crearListaUsuarioInicial(listaUsuarios);
-            (listaMonedas, listaTasa) = Metodos.crearListaMonedasInicial(listaMonedas, listaTasa);
-
+            listaUsuarios = Usuario.crearListaUsuarioInicial(listaUsuarios);
+            listaMonedas = Moneda.crearListaMonedasInicial(listaMonedas);
+            listaTasa = Tasa.crearListaTasaInicial(listaMonedas, listaTasa);
             //TODO: factorizar el Case 
-            
 
             string nuevo;
             string nombre;
@@ -51,30 +52,41 @@ namespace Proyecto_Clase_R
             bool correcta;
             bool correctamenteLogueado = false;
 
+              /////////////
+             // INICIO: //
+            /////////////
             Console.WriteLine("Hola, es usted usuario nuevo(n) o ya esta registrado(r)");
             nuevo = Console.ReadLine();
             //TODO: Comprobar entrada correcta
 
-            //Console.WriteLine(listaUsuarios.Count);
-
-
             switch (nuevo)
             {
-                case "n":               // Es un nuevo Ususario -> Registrarlo
-                    nombre = Metodos.nuevoUsuarioNombre();
+                case "n":                                               // Es un nuevo Ususario -> Registrarlo
+                    nombre = Metodos.nuevoUsuarioNombre();              // Obtenemos su nombre
                     do
                     {
-                        correcta = Metodos.nuevoUsuarioContraseña();
-                        if (correcta)                      //"Las contraseñas coinciden"
+                        (password, correcta) = Metodos.nuevoUsuarioContraseña();    // Obtenemos su contraseña y comprobamos que es correcta
+
+                        if (correcta)                                   // Las contraseñas coinciden "Comtraseña correcta"
                         {
-                            Metodos.contraseñasCoinciden(nombre);
+                            Metodos.contraseñasCoinciden(nombre);       // Añadimos nuevoUsuario a listaUsuarios
+                            listaUsuarios = Usuario.añadirUsuario(listaUsuarios, nombre, password);
+                            
                         }
-                        else                                //"Las contraseñas NO coinciden"
+                        else                                            //"Las contraseñas NO coinciden"
                         {
                             Metodos.contraseñasNoCoinciden(nombre);
                         }
 
                     } while (correcta != true); //Hacer mientras las contraseñas NO coincidan
+
+                    //////////////////////////////////////////////////////////////////////
+                    // Las contraseñas son correctas y el nuevo usuario esta registrado //
+                    //////////////////////////////////////////////////////////////////////
+                    var cantidad = Metodos.obtenerCantidad();
+                    Moneda monedaOrigen = Metodos.obtenerOrigen(listaMonedas);
+                    Moneda monedaDestino = Metodos.obtenerDestino(listaMonedas);
+                    double tasa = Tasa.obtenerTasa(listaTasa, monedaOrigen, monedaDestino);
                     Metodos.conversorMonedas(listaMonedas, historico);
                     break;
 
@@ -125,7 +137,7 @@ namespace Proyecto_Clase_R
 
                 default:
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("No es una entrada correcta.");
+                    Console.WriteLine("No es una entrada correcta. n o r");
                     break;
             }
 

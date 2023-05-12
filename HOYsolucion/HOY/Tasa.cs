@@ -77,18 +77,21 @@ namespace Proyecto_Clase_R
 
         public static double obtenerTasa(List<Tasa> listaTasa, Moneda monedaOrigen, Moneda monedaDestino)
         {
-            //if (listaTasa != null)
-            //{
-                foreach (var objeto in listaTasa)
+            double tasa = 0;
 
+            foreach (var objeto in listaTasa)
+
+            {
+                if ((objeto.MonedaOrigen.Nombre == monedaOrigen.Nombre) && (objeto.MonedaDestino.Nombre == monedaDestino.Nombre))
                 {
-                    if ((objeto.MonedaOrigen.Nombre == monedaOrigen.Nombre) && (objeto.MonedaDestino.Nombre == monedaDestino.Nombre))
-                    {
-                        return (objeto.TasaConversion);
-                    }
-                    else {return (0);
+                    tasa = (objeto.TasaConversion);
+                }
+                else
+                {
+                    return (0);
                 }
             }
+            return (tasa);
         }
     }
 }

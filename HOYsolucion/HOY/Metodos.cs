@@ -96,7 +96,7 @@ namespace Proyecto_Clase_R
             Moneda monedaO = (from moneda in listaMonedas where moneda.Letra == Letra1 select moneda).FirstOrDefault();
             return (monedaO);
         }
-        public static Moneda  obtenerDestino(List<Moneda> listaMonedas)
+        public static Moneda obtenerDestino(List<Moneda> listaMonedas)
         {
             Console.WriteLine("Introduzca la moneda destino: Euro(e), Dolar(d) o Libra(l)");
             var Letra2 = Console.ReadLine();
@@ -109,6 +109,12 @@ namespace Proyecto_Clase_R
         {
             Console.WriteLine("Introduzca la cantidad a convertir");            //Adquisicion de cantidad a convertir
             return (Math.Round(Convert.ToDouble(Console.ReadLine()), 2));
+        }
+        public static double mostrarResultado(double resultado)
+        {
+            Console.WriteLine("elresultado de convertir es:");            //Adquisicion de cantidad a convertir
+            double salida = (Math.Round(Convert.ToDouble(Console.ReadLine()), 2));
+            return (salida);
         }
 
         public static void conversorMonedas(List<Moneda> listaMonedas, List<Busqueda> historico)
@@ -125,82 +131,84 @@ namespace Proyecto_Clase_R
             Moneda monedaOrigen;
             Moneda monedaDestino = new Moneda();
 
-            
-
-                //TODO:Revisar Busqueda de la tasa de conversion en la lista de tasas
-                
-                Console.WriteLine("Introduzca la cantidad a convertir");            //Adquisicion de cantidad a convertir
-                cantidad = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
-
-                //Bloque Switch
-                switch (monedas)
-                {
-                    case "ed":
-                        //resultado = Math.Round(Convert.ToDouble(cantidad * tasaED), 2);
-                        double tasaConver = (from tasa1 in listaTasas where monedaOrigen.Letra == "e" select moneda).FirstOrDefault();
-
-                        monedaOrigen = (from moneda in listaMonedas where moneda.Letra == "e" select moneda).FirstOrDefault();
-
-                        monedaDestino = (from moneda in listaMonedas where moneda.Letra == "d" select moneda).FirstOrDefault();
-                        Console.WriteLine($"{cantidad} Euros son {resultado} Dolares");
-                        break;
-
-                    case "el":
-                        resultado = Math.Round(Convert.ToDouble(cantidad * tasaEL), 2);
-                        monedaOrigen = (from moneda in listaMonedas where moneda.Letra == "e" select moneda).FirstOrDefault();
-
-                        monedaDestino = (from moneda in listaMonedas where moneda.Letra == "" select moneda).FirstOrDefault();
-                        Console.WriteLine($"{cantidad} Euros son {resultado} Libras");
-                        break;
-
-                    case "de":
-                        resultado = Math.Round(Convert.ToDouble(cantidad * (1 / tasaED)), 2);
-                        Console.WriteLine($"{cantidad} Dolares son {resultado} Euros");
-                        break;
-
-                    case "dl":
-                        resultado = Math.Round(Convert.ToDouble(cantidad * tasaDL), 2); ;
-                        Console.WriteLine($"{cantidad} Dolares son {resultado} Libras");
-                        break;
-
-                    case "le":
-                        resultado = Math.Round(Convert.ToDouble(cantidad * (1 / tasaEL)), 2);
-                        Console.WriteLine($"{cantidad} Libras son {resultado} Euros");
-                        break;
-
-                    case "ld":
-                        resultado = Math.Round(Convert.ToDouble(cantidad * (1 / tasaDL)), 2);
-                        Console.WriteLine($"{cantidad} Libras son {resultado} Dolares");
-                        break;
-
-                    default:
-                        Console.WriteLine($"Moneda destino u origen erronea.");
-                        break;
-                }
-                Busqueda nuevaBusqueda = new Busqueda()
-                {
-                    monedaDestino = monedaDestino,
-                    monedaOrigen = monedaOrigen;
-
-                };
-                //TODO: Agrgar a la lista de busquedas
 
 
+            //TODO:Revisar Busqueda de la tasa de conversion en la lista de tasas
 
+            Console.WriteLine("Introduzca la cantidad a convertir");            //Adquisicion de cantidad a convertir
+            cantidad = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
 
-                //Control de siguiente conversión o salida de programa
-                Console.WriteLine("Desea convertir otra vez (s/n)?");
-                continuar = Console.ReadLine();
-                if (continuar == "s")
-                {
-                    seguir = true;
-                }
-                else
-                {
-                    seguir = false;
-                }
+            //Bloque Switch
+            //switch (monedas)
+            //{
+            //    case "ed":
+            //        //resultado = Math.Round(Convert.ToDouble(cantidad * tasaED), 2);
+            //        double tasaConver = (from tasa1 in listaTasas where monedaOrigen.Letra == "e" select moneda).FirstOrDefault();
 
-            } while (seguir == true);
+            //        monedaOrigen = (from moneda in listaMonedas where moneda.Letra == "e" select moneda).FirstOrDefault();
+
+            //        monedaDestino = (from moneda in listaMonedas where moneda.Letra == "d" select moneda).FirstOrDefault();
+            //        Console.WriteLine($"{cantidad} Euros son {resultado} Dolares");
+            //        break;
+
+            //    case "el":
+            //        resultado = Math.Round(Convert.ToDouble(cantidad * tasaEL), 2);
+            //        monedaOrigen = (from moneda in listaMonedas where moneda.Letra == "e" select moneda).FirstOrDefault();
+
+            //        monedaDestino = (from moneda in listaMonedas where moneda.Letra == "" select moneda).FirstOrDefault();
+            //        Console.WriteLine($"{cantidad} Euros son {resultado} Libras");
+            //        break;
+
+            //    case "de":
+            //        resultado = Math.Round(Convert.ToDouble(cantidad * (1 / tasaED)), 2);
+            //        Console.WriteLine($"{cantidad} Dolares son {resultado} Euros");
+            //        break;
+
+            //    case "dl":
+            //        resultado = Math.Round(Convert.ToDouble(cantidad * tasaDL), 2); ;
+            //        Console.WriteLine($"{cantidad} Dolares son {resultado} Libras");
+            //        break;
+
+            //    case "le":
+            //        resultado = Math.Round(Convert.ToDouble(cantidad * (1 / tasaEL)), 2);
+            //        Console.WriteLine($"{cantidad} Libras son {resultado} Euros");
+            //        break;
+
+            //    case "ld":
+            //        resultado = Math.Round(Convert.ToDouble(cantidad * (1 / tasaDL)), 2);
+            //        Console.WriteLine($"{cantidad} Libras son {resultado} Dolares");
+            //        break;
+
+            //    default:
+            //        Console.WriteLine($"Moneda destino u origen erronea.");
+            //        break;
+            //}
+            //Busqueda nuevaBusqueda = new Busqueda()
+            //{
+            //    monedaDestino = monedaDestino,
+            //    monedaOrigen = monedaOrigen; 
+            //}
         }
+    }
+
+    //TODO: Agrgar a la lista de busquedas
+
+
+
+
+    //Control de siguiente conversión o salida de programa
+    //Console.WriteLine("Desea convertir otra vez (s/n)?");
+    //continuar = Console.ReadLine();
+    //if (continuar == "s")
+    //{
+    //    seguir = true;
+    //}
+    //else
+    //{
+    //    seguir = false;
+    //}
+
+    //            } while (seguir == true) ;
+}
     }
 }

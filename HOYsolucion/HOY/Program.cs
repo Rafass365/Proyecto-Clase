@@ -78,16 +78,21 @@ namespace Proyecto_Clase_R
                             Metodos.contraseñasNoCoinciden(nombre);
                         }
 
-                    } while (correcta != true); //Hacer mientras las contraseñas NO coincidan
+                    } while (correcta != true);                         //Hacer mientras las contraseñas NO coincidan
 
                     //////////////////////////////////////////////////////////////////////
                     // Las contraseñas son correctas y el nuevo usuario esta registrado //
                     //////////////////////////////////////////////////////////////////////
+                    
                     var cantidad = Metodos.obtenerCantidad();
                     Moneda monedaOrigen = Metodos.obtenerOrigen(listaMonedas);
                     Moneda monedaDestino = Metodos.obtenerDestino(listaMonedas);
                     double tasa = Tasa.obtenerTasa(listaTasa, monedaOrigen, monedaDestino);
-                    Metodos.conversorMonedas(listaMonedas, historico);
+
+                    //TODO: 12/05/2023
+
+                    double resultado = cantidad * tasa;
+                    resultado = Metodos.mostrarResultado(resultado);
                     break;
 
                 case "r":               // Es un Ususario Registrado -> Comprobar Usuario <-> Contraseña
